@@ -2,19 +2,42 @@ import seaborn as sns
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
-def plot_loss(history):
-    plt.figure(figsize = (10,6))
-    plt.plot(history.epoch, history.history["loss"], label = "loss")
-    plt.plot(history.epoch, history.history["val_loss"], label = "val_loss")
-    plt.title("Loss")
-    plt.legend()
+def plot_loss(history, axis = None):
+    #plt.figure(figsize = (10,6))
+    if axis is not None:
+      axis.plot(history.epoch, history.history["loss"],
+                label = "Train loss", color = "#191970")
+      axis.plot(history.epoch, history.history["val_loss"],
+                label = "Val loss", color = "#00CC33")
+      axis.set_title("Loss")
+      axis.legend()
+    else:
+      plt.plot(history.epoch, history.history["loss"],
+               label = "Train loss", color = "#191970")
+      plt.plot(history.epoch, history.history["val_loss"],
+               label = "Val loss", color = "#00CC33")
+      plt.title("Loss")
+      plt.legend()
+
     
-def plot_accuracy(history):
-    plt.figure(figsize = (10,6))
-    plt.plot(history.epoch, history.history["accuracy"], label = "accuracy")
-    plt.plot(history.epoch, history.history["val_accuracy"], label = "val_accuracy")
-    plt.title("Accuracy")
-    plt.legend()
+def plot_accuracy(history, axis = None):
+    #plt.figure(figsize = (10,6))
+    if axis is not None:
+      axis.plot(history.epoch, history.history["accuracy"],
+                label = "Train accuracy", color = "#191970")
+      axis.plot(history.epoch, history.history["val_accuracy"],
+                label = "Val accuracy", color = "#00CC33")
+      axis.set_ylim(0, 1.1)
+      axis.set_title("Accuracy")
+      axis.legend()
+    else:
+      plt.plot(history.epoch, history.history["accuracy"],
+               label = "Train accuracy", color = "#191970")
+      plt.plot(history.epoch, history.history["val_accuracy"],
+               label = "Val accuracy", color = "#00CC33")
+      plt.title("Accuracy")
+      plt.ylim(0, 1.1)
+      plt.legend()
     
     
 def keras_model_memory_usage_in_bytes(model, *, batch_size: int):
