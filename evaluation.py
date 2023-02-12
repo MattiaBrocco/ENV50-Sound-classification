@@ -3,41 +3,53 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 def plot_loss(history, axis = None):
-    #plt.figure(figsize = (10,6))
+    """
+    Parameters
+    ----------
+    
+        history : 'tf.keras.callbacks.History' object
+        axis : 'matplotlib.pyplot.axis' object
+    """
     if axis is not None:
-      axis.plot(history.epoch, history.history["loss"],
-                label = "Train loss", color = "#191970")
-      axis.plot(history.epoch, history.history["val_loss"],
-                label = "Val loss", color = "#00CC33")
-      axis.set_title("Loss")
-      axis.legend()
+        axis.plot(history.epoch, history.history["loss"],
+                  label = "Train loss", color = "#191970")
+        axis.plot(history.epoch, history.history["val_loss"],
+                  label = "Val loss", color = "#00CC33")
+        axis.set_title("Loss")
+        axis.legend()
     else:
-      plt.plot(history.epoch, history.history["loss"],
-               label = "Train loss", color = "#191970")
-      plt.plot(history.epoch, history.history["val_loss"],
-               label = "Val loss", color = "#00CC33")
-      plt.title("Loss")
-      plt.legend()
+        plt.plot(history.epoch, history.history["loss"],
+                 label = "Train loss", color = "#191970")
+        plt.plot(history.epoch, history.history["val_loss"],
+                 label = "Val loss", color = "#00CC33")
+        plt.title("Loss")
+        plt.legend()
 
     
 def plot_accuracy(history, axis = None):
-    #plt.figure(figsize = (10,6))
+    """
+    Parameters
+    ----------
+    
+        history : 'tf.keras.callbacks.History' object
+        axis : 'matplotlib.pyplot.axis' object
+    """
     if axis is not None:
-      axis.plot(history.epoch, history.history["accuracy"],
-                label = "Train accuracy", color = "#191970")
-      axis.plot(history.epoch, history.history["val_accuracy"],
-                label = "Val accuracy", color = "#00CC33")
-      axis.set_ylim(0, 1.1)
-      axis.set_title("Accuracy")
-      axis.legend()
+        axis.plot(history.epoch, history.history["accuracy"],
+                  label = "Train accuracy", color = "#191970")
+        axis.plot(history.epoch, history.history["val_accuracy"],
+                  label = "Val accuracy", color = "#00CC33")
+        axis.set_ylim(0, 1.1)
+        axis.set_title("Accuracy")
+        axis.legend()
     else:
-      plt.plot(history.epoch, history.history["accuracy"],
-               label = "Train accuracy", color = "#191970")
-      plt.plot(history.epoch, history.history["val_accuracy"],
-               label = "Val accuracy", color = "#00CC33")
-      plt.title("Accuracy")
-      plt.ylim(0, 1.1)
-      plt.legend()
+        plt.plot(history.epoch, history.history["accuracy"],
+                 label = "Train accuracy", color = "#191970")
+        plt.plot(history.epoch, history.history["val_accuracy"],
+                 label = "Val accuracy", color = "#00CC33")
+        plt.title("Accuracy")
+        plt.ylim(0, 1.1)
+        plt.legend()
     
     
 def keras_model_memory_usage_in_bytes(model, *, batch_size: int):
@@ -47,12 +59,15 @@ def keras_model_memory_usage_in_bytes(model, *, batch_size: int):
 
     The model shapes are multipled by the batch size, but the weights are not.
 
-    Args:
+    Parameters
+    ----------
         model: A Keras model.
         batch_size: The batch size you intend to run the model with. If you
             have already specified the batch size in the model itself, then
             pass `1` as the argument here.
-    Returns:
+    
+    Returns
+    -------
         An estimate of the Keras model's memory usage in bytes.
 
     """
