@@ -1,60 +1,14 @@
 # Environmental-sounds-UNIPD-2022
 
-## Evaluation criteria
-<ul>
-  <li>Project (60 points)
-    <ul>
-     <li>originality (10 pt.)</li>
-     <li>data preprocessing techniques (10 pt.)</li>
-     <li>learning architectures (20 pt.)</li>
-     <li>comparison against other/existing approaches (10 pt.)</li>
-     <li>live demo of the code (10 pt.)</li>
-    </ul>
-  </li>
-  <li>Written report (40 points)
-    <ul>
-      <li>clarity of exposition (10 pt.)</li>
-      <li>completeness (10 pt.)</li>
-      <li>analysis of results (number and type of metrics used) (20 pt.)</li>
-    </ul>
-  </li>
-  <li>Oral exposition (20 points)
-    <ul>
-      <li>duration (your talk must take max. 20 minutes, using slides) (10 pt.)</li>
-      <li>clarity of exposition (10 pt.)</li>
-    </ul>
-  </li>
-</ul>
+*Dataset*: ESC50 (50 classes, 2000 examples).
 
-## Structure of the paper
-<ul>
-  <li>
-    INTRODUCTION
-      <ol>
-        <li>General introduction</li>
-        <li>Put the problem into perspective</li>
-        <li>Present the paper contribution</li>
-        <li>Closing</li>
-      </ol>
-  </li>
-  <li>RELATED WORK</li>
-  <li>
-    SIGNALS AND FEATURES
-    <ul>
-      <li>Measurement setup (if relevant)</li>
-      <li>How the signals were pre-processed</li>
-      <li>How feature vectors were obtained from the pre-processed signals</li>
-    </ul>
-  </li>
-  <li>LEARNING FRAMEWORK</li>
-  <li>RESULTS</li>
-  <li>CONCLUDING REMARKS (optional)
-    <ul>
-    <li>A very short summary of what done</li>
-    <li>Some (possibly) intelligent observations on the relevance and applicability of your algorithms / findings</li>
-    <li>What is still missing, and can be added in the future to extend your work</li>
-    <li>What you have learned</li>
-    <li>Any difficulties you may have encountered</li>
-    </ul>
-  </li>
-</ul>
+*Preprocessing*: MFCCs, Chromagram, data augmentaion (7 times the initial sample size).
+
+![eda_image](https://user-images.githubusercontent.com/61026948/218862548-b7420bb9-2630-4149-919b-91ac556eca5e.jpg)
+
+*Evaluation metrics*: Accuracy, Estimated Memory Usage.
+*Architectures*: CNN, RNN-SEQ2D, RNN431, RNN60-small, RNN60-LSTM, RNN60-GRU.
+
+![RNN-1x60_8M_params](https://user-images.githubusercontent.com/61026948/218862612-18ab6ae9-c06a-40a6-aaa7-e1a8cd8a0a54.jpg)
+
+*Best performing model*: in accuracy RNN60-LSTM (89.50% with 261.8 Mb), in accuracy with low memory usage RNN60-small (83.86% with 9.8 Mb).
